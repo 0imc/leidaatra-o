@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lei da Atração e Reprogramação Mental | Curso Completo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0A0A0A;
+      color: #E5E5E5;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+
+    :root {
+      --red: #DC2626;
+      --red-dark: #B91C1C;
+      --red-soft: rgba(220, 38, 38, 0.15);
+      --red-glow: rgba(220, 38, 38, 0.4);
+      --gray: #A3A3A3;
+      --card: #111111;
+      --border: rgba(220, 38, 38, 0.25);
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10, 10, 10, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem;
+      backdrop-filter: blur(10px);
+    }
+    .header-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; color: var(--red); }
+    .nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .nav a { color: var(--gray); font-size: 0.9rem; padding: 0.35rem 0; }
+    .nav a:hover { color: var(--red); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 1rem 4rem;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 40% at 50% 0%, var(--red-soft) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .badge {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: var(--red-soft);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--red);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero h1 .hl { color: var(--red); text-shadow: 0 0 20px var(--red-glow); }
+    .hero-sub { font-size: clamp(0.95rem, 2vw, 1.1rem); color: var(--gray); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .hero-feat { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem 1.25rem; font-size: 0.85rem; color: var(--gray); margin-bottom: 1.5rem; }
+    .hero-feat span { display: flex; align-items: center; gap: 0.4rem; }
+    .hero-feat span::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      border: none;
+      text-align: center;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      color: white;
+      box-shadow: 0 4px 20px var(--red-glow);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px var(--red-glow); filter: brightness(1.08); }
+    .btn-outline { background: transparent; border: 2px solid var(--red); color: var(--red); }
+    .btn-outline:hover { background: var(--red-soft); }
+    .btn-wrap { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-top: 1rem; }
+
+    /* Sections */
+    .sec { padding: 3.5rem 1rem; }
+    .sec-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 0.5rem; }
+    .sec-title { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 700; margin-bottom: 0.75rem; }
+    .sec-desc { color: var(--gray); font-size: 0.95rem; margin-bottom: 1.5rem; }
+    .sec-header { text-align: center; margin-bottom: 2rem; }
+    .sec-header .sec-desc { margin-left: auto; margin-right: auto; max-width: 540px; }
+
+    /* Cards */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      padding: 1.25rem;
+      margin-bottom: 0.75rem;
+      transition: all 0.25s;
+    }
+    .card:hover { border-color: var(--red); box-shadow: 0 0 18px var(--red-soft); }
+    .card h3 { font-size: 1.05rem; color: var(--red); margin-bottom: 0.4rem; }
+    .card p { font-size: 0.9rem; color: var(--gray); }
+
+    /* Module link */
+    .mod-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.6rem;
+      margin-bottom: 0.5rem;
+      transition: all 0.25s;
+    }
+    .mod-link:hover { border-color: var(--red); transform: translateX(4px); box-shadow: 0 0 18px var(--red-soft); }
+    .mod-num {
+      flex-shrink: 0;
+      width: 2.5rem;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--red), var(--red-dark));
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 0.4rem;
+    }
+    .mod-title { font-weight: 600; font-size: 1rem; }
+    .mod-meta { font-size: 0.8rem; color: var(--gray); margin-top: 0.2rem; }
+
+    /* Check list */
+    .check-list { list-style: none; padding: 0; margin: 0; }
+    .check-list li { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.6rem; }
+    .check-list li::before { content: '✓'; flex-shrink: 0; width: 1.25rem; height: 1.25rem; display: flex; align-items: center; justify-content: center; background: var(--red-soft); color: var(--red); border-radius: 50%; font-size: 0.65rem; font-weight: bold; }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--border); padding: 2rem 1rem; text-align: center; }
+    .footer .logo { font-size: 1.1rem; display: block; margin-bottom: 0.4rem; }
+    .footer p { font-size: 0.85rem; color: var(--gray); }
+
+    @media (max-width: 480px) {
+      .btn-wrap { flex-direction: column; }
+      .btn { width: 100%; }
+      .nav { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner wrap">
+      <a href="#inicio" class="logo">Lei da Atração</a>
+      <nav class="nav">
+        <a href="#inicio">Início</a>
+        <a href="#apresentacao">Apresentação</a>
+        <a href="#modulos">Módulos</a>
+        <a href="#comprar">Comprar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="hero-inner wrap">
+        <span class="badge">Curso Definitivo · 15 Aulas</span>
+        <h1>Lei da Atração e <span class="hl">Reprogramação Mental</span></h1>
+        <p class="hero-sub">Transforme sua realidade de dentro para fora. Um curso profundo que une psicologia, consciência e prática real — sem promessas vazias, sem positividade tóxica.</p>
+        <div class="hero-feat">
+          <span>Do básico ao avançado</span>
+          <span>Atividades práticas</span>
+          <span>Base científica</span>
+        </div>
+        <div class="btn-wrap">
+          <a href="https://pay.cakto.com.br/37ebaur_748771" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Quero Começar Agora</a>
+          <a href="#modulos" class="btn btn-outline">Ver Módulos</a>
+        </div>
+        <p style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--gray);">Liberação imediata após o pagamento.</p>
+      </div>
+    </section>
+
+    <section id="apresentacao" class="sec">
+      <div class="wrap">
+        <div class="sec-header">
+          <span class="sec-label">Por que este curso?</span>
+          <h2 class="sec-title">Uma transformação real, não fantasia</h2>
+          <p class="sec-desc">Este curso foi criado para quem quer resultados de verdade. Nada de pensamento mágico — aqui você aprende a mecânica real da manifestação.</p>
+        </div>
+        <div style="display: grid; gap: 0.75rem;">
+          <div class="card"><h3>Reprogramação Profunda</h3><p>Técnicas baseadas em neurociência para substituir crenças limitantes por padrões de sucesso.</p></div>
+          <div class="card"><h3>Cura Emocional</h3><p>Trabalhe traumas e bloqueios inconscientes que sabotam sua manifestação.</p></div>
+          <div class="card"><h3>Ação Alinhada</h3><p>Integre visualização com ação prática para resultados reais e duradouros.</p></div>
+          <div class="card"><h3>Método Integrado</h3><p>Sistema passo a passo aplicável em dinheiro, relacionamentos e vida.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="modulos" class="sec" style="background: rgba(220,38,38,0.04);">
+      <div class="wrap">
+        <div class="sec-header">
+          <span class="sec-label">Conteúdo completo</span>
+          <h2 class="sec-title">15 módulos profundos</h2>
+          <p class="sec-desc">Cada módulo traz teoria e atividades práticas. Adquira o curso para acessar todo o conteúdo.</p>
+        </div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">01</span><div><div class="mod-title">Fundamentos da Lei da Atração</div><div class="mod-meta">O que é, por que funciona e responsabilidade</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">02</span><div><div class="mod-title">Vibração e frequência energética</div><div class="mod-meta">Emoção e coerência interna</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">03</span><div><div class="mod-title">Mentalidade e crenças limitantes</div><div class="mod-meta">Autossabotagem e padrões herdados</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">04</span><div><div class="mod-title">Reprogramação mental</div><div class="mod-meta">Substituição de crenças e afirmações</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">05</span><div><div class="mod-title">Lei da suposição</div><div class="mod-meta">Assumir um estado e agir como se</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">06</span><div><div class="mod-title">Visualização criativa</div><div class="mod-meta">Visualização emocional e imaginação</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">07</span><div><div class="mod-title">Afirmações poderosas</div><div class="mod-meta">Afirmações corretas e repetição consciente</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">08</span><div><div class="mod-title">Emoções e sentimento como chave</div><div class="mod-meta">Sentimento como linguagem da manifestação</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">09</span><div><div class="mod-title">Arquétipos</div><div class="mod-meta">Conceito de Jung e ativação consciente</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">10</span><div><div class="mod-title">Códigos Grabovoi</div><div class="mod-meta">O que são e como usar</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">11</span><div><div class="mod-title">Shifting</div><div class="mod-meta">Conceito e prática consciente</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">12</span><div><div class="mod-title">Espelhamento da realidade</div><div class="mod-meta">Como a realidade reflete seus padrões</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">13</span><div><div class="mod-title">Autoconceito</div><div class="mod-meta">Identidade, merecimento e autoimagem</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">14</span><div><div class="mod-title">Persistência e desapego</div><div class="mod-meta">Erros comuns e desapego do resultado</div></div></div>
+        <div class="mod-link" style="cursor: default; pointer-events: none;"><span class="mod-num">15</span><div><div class="mod-title">Integração total da Lei da Atração</div><div class="mod-meta">Método integrado e rotinas</div></div></div>
+      </div>
+    </section>
+
+    <section id="comprar" class="sec" style="background: rgba(220,38,38,0.06); text-align: center;">
+      <div class="wrap">
+        <span class="sec-label">Transformação começa agora</span>
+        <h2 class="sec-title">Pronto para transformar sua realidade?</h2>
+        <p class="sec-desc">Acesse o curso completo com as 15 aulas, exercícios práticos e método integrado para manifestação consciente.</p>
+        <a href="https://pay.cakto.com.br/37ebaur_748771" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Comprar Curso Agora</a>
+        <p style="margin-top: 1.25rem; font-size: 0.95rem; color: var(--gray); font-weight: 500;">Liberação imediata após o pagamento.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="logo">Lei da Atração</span>
+    <p>Reprogramação Mental · <span id="yr"></span> Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
